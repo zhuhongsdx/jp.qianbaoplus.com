@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>我的审批</title>
+    <link rel="stylesheet" href="css/zhf.css">
+</head>
+<body>
+<div class="wrapper approval">
+    <header class="header">
+        <img src="img/zhf/img_topbar_back.png" alt="" class="goBack">
+        <h1>我的审批单</h1>
+    </header>
+    <section class="zhf_main">
+        <ul class="approvalList">
+            <li>
+
+            </li>
+            <li data-code="A00100003"><p>李娜的审批单</p><small>审批单号：A00100003</small></li>
+        </ul>
+    </section>
+</div>
+<section class="warnText">
+    <p></p>
+</section>
+<div class="Loading" style="z-index: 11;">
+    <img src="img/loading.gif" alt="">
+</div>
+</body>
+<script src="js/zepto.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/gallery/base/base.js"></script>
+<script src="js/app/common/request.js"></script>
+<script src="js/app/common/API.js"></script>
+<script src="js/app/common/Constant.js"></script>
+<script>
+    (function($){
+        $(".Loading").show();
+        $(".approvalList").html("");
+        var casUserIdx = localStorage.getItem("casUserIdx");
+        var reqData = {
+            "clientUserIndex": casUserIdx,
+            "departTime": "",
+            "arriveTime": "",
+            "expireFlag": false
+        };
+        ajaxRequest({url:API.AIR_TICKER.QUERY_CAS_APPROVES,data:reqData},function(data) {
+            console.log(data.content.casApproveList);
+            $(".Loading").hide();
+            var casAppList = data.content.casApproveList,
+                color = "";
+            if (casAppList.length > "0") {
+                for (var i = 0, len = casAppList.length; i < len; i++) {
+                    if(casAppList[i].status == "3" || casAppList[i].status == 3){
+                        color = "red";
+                    }else{
+                        color = "";
+                    }
+                    $(".approvalList").append('<li class="'+color+'" data-code="'+ casAppList[i].casApproveNo +'"><p>' + casAppList[i].clientUserName + '的审批单</p><small>审批单号：' + casAppList[i].casApproveNo + '</small></li>');
+                }
+            } else {
+                $(".warnText").fadeIn('slow').find("p").text("您的审批单为空！");
+                setTimeout(fadeOut,3000);
+                return false;
+            }
+        },function(){
+            $(".Loading").hide();
+            $(".warnText").fadeIn('slow').find("p").text("您的审批单为空！");
+            setTimeout(fadeOut,3000);
+            return false;
+        });
+
+        $(".approvalList li").live("tap",function(){
+            var approvalNo = $(this).attr("data-code");
+            window.location.href = "zhfApproInfo.html?approvalNo=" + approvalNo;
+        });
+
+        $(".goBack").on("tap",function(){
+            window.history.back();
+        })
+    })(Zepto);
+</script>
+</html>

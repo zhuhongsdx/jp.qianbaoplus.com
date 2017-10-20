@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>确认信息</title>
+    <link href="./css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/airplane-style.css"/>
+</head>
+<body class="scope" style="padding-top: 4.5rem;">
+    <div class="bg" style="z-index:600;"></div>
+    <div class="tuiInfo" style="z-index:600;">
+        <h3>退改签说明</h3>
+        <div></div>
+    </div>
+    <div class="loading" style="z-index:600;">
+        <img src="img/img_loading.gif" alt="">
+        <p>正在取消该订单，<br>请耐心等待...</p>
+    </div>
+    <section class="warnText">
+        <p></p>
+    </section>
+    <div class="sure" style="z-index:600;">
+        <p class="sureCon"></p>
+        <a href="javascript:;" class="sureOk">返回首页，重新预订</a>
+    </div>
+    <header class="header" style="display: block;position: fixed;left:0;top:0;z-index: 99;height: 4.5rem;border-bottom: 1px solid #ddd;">
+        <img src="img/zhf/img_topbar_back.png" alt="" class="goBack">
+        <h1>确认信息</h1>
+    </header>
+    <div class="return-txt font-12 fontColor-49b">正在帮您预订，请稍候</div>
+    <div class="return-ticket-status font-14 fontColor-ff6" style="margin-bottom: -1.1rem;display: none;">预订中</div>
+<div class="wrapper-order-confirm" style="padding-bottom: 110px;">
+     <!--<div class="order-info-list order-confirm-list">
+        <div>
+            <div class="direction-go font-12 fontColor-49b">去程</div>
+            <div class="order-info-gotime">
+                <p class="font-12 fontColor-999">5月18日 周三</p>
+                <p class="font-22 fontColor-333">06：25</p>
+                <p class="font-12 fontColor-666">首都T2</p>
+            </div>
+            <div class="order-info-middtime">
+                <img src="../img/img_time_consuming_plane.png" alt=""/>
+                <div style="text-align: center;">
+                    <img class="icon-clock" src="../img/img_time_consuming_clock.png" alt=""/>
+                    <span class="flytime font-10-m fontColor-999">4小时45分</span>
+                </div>
+            </div>
+            <div class="order-info-backtime">
+                <p class="font-12 fontColor-999">5月18日 周三</p>
+                <p class="font-22 fontColor-333">08：25</p>
+                <p class="font-12 fontColor-666">虹桥T2</p>
+            </div>
+            <div class="clearfix"></div>
+            <div class="order-info-price">
+                <div class="flightListBottom font-12 fontColor-999">
+                    <img src="../img/img_airline_logo.png" alt=""/>
+                    <span>南航CZ6412</span><span>321中</span><span>无餐食</span>
+                </div>
+                <a href="javascript:;" class="look-info font-12 fontColor-49b">查看退改签</a>
+            </div>
+            <div class="order-detail-switch">
+                <span class="font-12 fontColor-999">订单编号 YD2015020293484928371</span>
+                <a href="javascript:;" class="order-detailBtn font-12"><span>详细信息</span><img src="../img/img_bluearrow_down.png" alt="详细信息"/></a>
+                <div class="order-confirm">
+                    <div class="order-confirm-top">
+                        <p class="font-14"><label class="fontColor-777">乘机人</label><span class="fontColor-666">拉格纳罗斯</span><br><span class="fontColor-666" style="font-size: 12px;padding-left: 5rem;">身份证  142623198910056422</span></p>
+                        <p class="font-14"><label class="fontColor-777">舱位</label><span class="fontColor-666">经济舱</span></p>
+                    </div>
+                    <div class="order-confirm-middle clearfix">
+                        <div class="font-14 fontColor-666">金额详情</div>
+                        <p class="font-12"><label class="fontColor-777">机票</label><span class="fontColor-ff6">1234元</span></p>
+                        <p class="font-12"><label class="fontColor-777">民航基金/燃油</label><span class="fontColor-ff6">88元</span></p>
+                        <p class="font-12"><label class="fontColor-777">保险</label><span class="fontColor-ff6">120元</span></p>
+                        <p class="font-12"><label class="fontColor-777">手续费</label><span class="fontColor-ff6">44元</span></p>
+                        <p class="font-14"><label class="fontColor-777">总额</label><span class="fontColor-ff6">44元</span></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <!--<div class="order-info-list order-confirm-list">
+        <div>
+            <div class="direction-back font-12 fontColor-ffb">返程</div>
+            <div class="order-info-gotime">
+                <p class="font-12 fontColor-999">5月18日 周三</p>
+                <p class="font-22 fontColor-333">06：25</p>
+                <p class="font-12 fontColor-666">首都T2</p>
+            </div>
+            <div class="order-info-middtime">
+                <img src="../img/img_time_consuming_plane.png" alt=""/>
+                <div style="text-align: center;">
+                    <img class="icon-clock" src="../img/img_time_consuming_clock.png" alt=""/>
+                    <span class="flytime font-10-m fontColor-999">4小时45分</span>
+                </div>
+            </div>
+            <div class="order-info-backtime">
+                <p class="font-12 fontColor-999">5月18日 周三</p>
+                <p class="font-22 fontColor-333">08：25</p>
+                <p class="font-12 fontColor-666">虹桥T2</p>
+            </div>
+            <div class="clearfix"></div>
+            <div class="order-info-price">
+                <div class="flightListBottom font-12 fontColor-999">
+                    <img src="../img/img_airline_logo.png" alt=""/>
+                    <span>南航CZ6412</span><span>321中</span><span>无餐食</span>
+                </div>
+                <a href="javascript:;" class="look-info font-12 fontColor-49b">查看退改签</a>
+            </div>
+            <div class="order-detail-switch">
+                <span class="font-12 fontColor-999">订单编号 YD2015020293484928371</span>
+                <a href="javascript:;" class="order-detailBtn font-12"><span>详细信息</span><img src="../img/img_bluearrow_down.png" alt="详细信息"/></a>
+                <div class="order-confirm">
+                    <div class="order-confirm-top">
+                        <p class="font-14"><label class="fontColor-777">乘机人</label><span class="fontColor-666">拉格纳罗斯</span></p>
+                        <p class="font-14"><label class="fontColor-777">身份证</label><span class="fontColor-666">19028383019283837X</span></p>
+                        <p class="font-14"><label class="fontColor-777">舱位</label><span class="fontColor-666">经济舱</span></p>
+                    </div>
+                    <div class="order-confirm-middle clearfix">
+                        <div class="font-14 fontColor-666">金额详情</div>
+                        <p class="font-12"><label class="fontColor-777">机票</label><span class="fontColor-ff6">1234</span></p>
+                        <p class="font-12"><label class="fontColor-777">民航基金/燃油</label><span class="fontColor-ff6">88</span></p>
+                        <p class="font-12"><label class="fontColor-777">保险</label><span class="fontColor-ff6">120</span></p>
+                        <p class="font-12"><label class="fontColor-777">手续费</label><span class="fontColor-ff6">44</span></p>
+                        <p class="font-14"><label class="fontColor-777">总额</label><span class="fontColor-ff6">44</span></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="wrapTop">
+        
+    </div>
+
+    <div class="go-pay-wrap">
+        <p class="yuDingTime font-14 fontColor-666" style="display: none;">预订成功，请在<span class="countDown fontColor-ff6"></span>时间内完成支付</p>
+        <section class="reserve-btn" style="display: none;">
+            <a href="javascript:;" class="cancel-btn">取消订单</a><a href="javascript:;" class="pay-btn">去确认</a>
+        </section>
+        <section class="reserve-not" style="display: none;">
+            <a href="javascript:;" class="cancel-btn">取消订单</a><a href="javascript:;" class="pay-btn">去确认</a>
+        </section>
+        <!--<div class="reserve-btn font-14 fontColor-fff" style="display: none;">去支付</div>
+        <div class="reserve-not font-14 fontColor-fff" style="display: none;">去支付</div>-->
+        <div class="reserve-btn-not font-14 fontColor-fff" style="display: none;">重新预订</div>
+    </div>
+</div>
+    <script src="./js/lib/zepto/zepto-noTouch.min.js"></script>
+    <script src="./js/moment.js"></script>
+    <script src="./js/app/common/request.js"></script>
+    <script src="./js/app/common/API.js"></script>
+    <script src="./js/app/common/Constant.js"></script>
+    <script src="./js/gallery/base/base.js"></script>
+    <script src="./js/moudle/mui/mui.min.js"></script>
+    <script src="./js/app/order_confirm_info/order_confirm_info.js"></script>
+</body>
+</html>

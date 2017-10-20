@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>乘机人信息</title>
+    <link rel="stylesheet" href="css/airplane-style.css">
+</head>
+<body>
+    <header class="header" style="display: block;position: relative;height: 4.5rem;">
+        <img src="img/zhf/img_topbar_back.png" alt="" class="goBack">
+        <h1>乘机人信息</h1>
+    </header>
+    <div>
+        <ul class="user-info">
+            <li>
+                <label>姓名 | 部门</label>
+                <div class="user-info-right" style="border-top: 0;margin-left: 7.5rem;">
+                    <p class="font-15 fontColor-333 personName"></p>
+                </div>
+            </li>
+            <!--<li class="sexLine">
+                <label>性别</label>
+                <div class="user-info-right sex font-14 fontColor-333" data-code="F">女</div>
+            </li>-->
+            <li>
+                <label>联系方式</label>
+                <div class="user-info-right" style="margin-left: 7.5rem;">
+                    <p class="font-16 fontColor-333 phone"></p>
+                </div>
+            </li>
+            <li class="credentials-txt">
+                <label>证件类型</label>
+                <div class="user-info-right font-15 fontColor-333" style="margin-left: 7.5rem;"><span class="cardType" data-code="NI">身份证</span><!--<img class="arrow" src="./img/img_rightarrow.png" alt=""/>--></div>
+            </li>
+            <li>
+                <label>证件号码</label>
+                <div class="user-info-right" style="margin-left: 7.5rem;">
+                    <input class="identity_card font-15 fontColor-333" type="text" placeholder="请输入证件号码" />
+                    <p class="prompt">您输入的证件号码有误</p>
+                </div>
+            </li>
+            <!--<li class="birthdayLine">
+                <label>出生日期</label>
+                <div class="user-info-right">
+                    <input class="birthday font-14 fontColor-333" type="text" placeholder="格式：“1990-01-01”" maxlength="10"/>
+                    <p class="birthPrompt">您输入的生日格式有误</p>
+                </div>
+            </li>-->
+            <li class="gong" style="height: 5rem;line-height: 2rem;">
+                <label style="height: 5rem;line-height: 5rem;">成本中心</label>
+                <div class="costing user-info-right font-15 fontColor-333" style="margin-left: 7.5rem;padding-right: 3rem;">
+                    <span class="font-15 costCon" style="color:#333;display: inline-block;margin-top: 0.5rem;"></span>
+                    <img class="arrow" src="./img/img_rightarrow.png" alt="" style="top: 1.8rem;"/>
+                </div>
+            </li>
+            <li class="gong">
+                <label>项目任务</label>
+                <div class="task user-info-right font-15 fontColor-333" style="margin-left: 7.5rem;">
+                    <span class="font-15 taskCon" style="color:#333;"></span>
+                    <img class="arrow" src="./img/img_rightarrow.png" alt=""/>
+                </div>
+            </li>
+            <li class="gong">
+                <label>费项</label>
+                <div class="project user-info-right font-15 fontColor-333" style="margin-left: 7.5rem;">
+                    <span class="font-15 projectCon" style="color:#333;"></span>
+                    <img class="arrow" src="./img/img_rightarrow.png" alt=""/>
+                </div>
+            </li>
+            <!--<li>
+                <label>费用归属</label>
+                <div class="department user-info-right font-15 fontColor-333" style="margin-left: 7.5rem;">
+                    <span class="font-15 departCon" style="color:#333;"></span>
+                    <img class="arrow" src="./img/img_rightarrow.png" alt=""/>
+                </div>
+            </li>-->
+            <li class="gong">
+                <label>出差原因</label>
+                <div class="reason user-info-right font-15 fontColor-333" style="margin-left: 7.5rem;height:100%;">
+                    <span class="font-15 evection"><!--商务会议--></span>
+                    <img class="arrow" id="arrow" src="./img/img_rightarrow.png" alt=""/>
+                </div>
+                <input type="hidden" id="cause" value="">
+            </li>
+        </ul>
+        <a href="javascript:;" class="sure-btn">确认</a>
+    </div>
+
+    <div class="bg"></div>
+    <section class="warnText">
+        <p></p>
+    </section>
+    <!--选择性别-->
+    <div class="sex-mask" style="display: none;">
+        <ul class="sex-info">
+            <div class="font-14 fontColor-ccc">选择性别</div>
+            <li class="sex-info-list font-16 fontColor-333" data-code="M">男</li>
+            <li class="sex-info-list font-16 fontColor-333" data-code="F">女</li>
+        </ul>
+    </div>
+
+    <!--选择证件类型-->
+    <div class="credentials-mask" style="display: none;">
+        <ul class="credentials-info">
+            <div class="font-14 fontColor-ccc">选择证件类型</div>
+            <li class="credentials-info-list font-16 fontColor-333" data-code="NI">身份证</li>
+            <li class="credentials-info-list font-16 fontColor-333" data-code="PP">护照</li>
+            <li class="credentials-info-list font-16 fontColor-333" data-code="TAI">台胞证</li>
+            <li class="credentials-info-list font-16 fontColor-333" data-code="AO">港澳通行证</li>
+        </ul>
+    </div>
+
+    <!--选择成本中心归属-->
+    <div class="moHu" id="costing">
+        <header class="" style="padding: 1rem;position: relative;">
+            <input maxlength="10" class="searchContent" type="text">
+            <div class="search"><img src="img/zhf/search.png" alt=""></div>
+        </header>
+        <div class="costList" id="costList">
+        </div>
+    </div>
+    <!--<div class="itemList" id="costing">
+        <a href="javascript:;" class="cancelDep">取消</a>
+        <a href="javascript:;" class="sureDep">确定</a>
+        <p></p>
+        <div id="costList">
+            <ul>
+                <li></li>
+                <li></li>
+                <li class="selected"></li>
+                <li class="before-and-after-selected">&lt;!&ndash;财务部&ndash;&gt;</li>
+                <li class="addBefore"></li>
+            </ul>
+        </div>
+    </div>-->
+
+    <!--选择项目任务归属-->
+    <div class="moHu" id="task">
+        <header class="" style="padding: 1rem;position: relative;">
+            <input maxlength="10" class="searchContent" type="text">
+            <div class="search"><img src="img/zhf/search.png" alt=""></div>
+        </header>
+        <div class="costList" id="taskList">
+        </div>
+    </div>
+    <!--<div class="itemList" id="task">
+        <a href="javascript:;" class="cancelDep">取消</a>
+        <a href="javascript:;" class="sureDep">确定</a>
+        <p></p>
+        <div id="taskList">
+            <ul>
+                <li></li>
+                <li></li>
+                <li class="selected"></li>
+                <li class="before-and-after-selected">&lt;!&ndash;财务部&ndash;&gt;</li>
+                <li class="addBefore"></li>
+            </ul>
+        </div>
+    </div>-->
+
+    <!--选择费项归属-->
+    <div class="itemList" id="project">
+        <a href="javascript:;" class="cancelDep">取消</a>
+        <a href="javascript:;" class="sureDep">确定</a>
+        <p></p>
+        <div id="projectList">
+            <ul>
+                <li></li>
+                <li></li>
+                <li class="selected"></li>
+                <li class="before-and-after-selected"><!--财务部--></li>
+                <li class="addBefore"></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--选择费项归属-->
+    <div class="itemList" id="department">
+        <a href="javascript:;" class="cancelDep">取消</a>
+        <a href="javascript:;" class="sureDep">确定</a>
+        <p></p>
+        <div id="departList">
+            <ul>
+                <li></li>
+                <li></li>
+                <li class="selected"></li>
+                <li class="before-and-after-selected"><!--财务部--></li>
+                <li class="addBefore"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="./js/zepto.js"></script>
+<script src="./js/iscroll.js"></script>
+<script src="./js/moment.js"></script>
+<script src="./js/app/lodash/lodash.min.js"></script>
+<script src="./js/app/common/request.js"></script>
+<script src="./js/app/common/API.js"></script>
+<script src="./js/app/common/Constant.js"></script>
+<script src="./js/gallery/base/base.js"></script>
+<script src="./js/app/fillInOrder/addUser.js"></script>
+</html>

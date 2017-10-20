@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <style>
+        html,body{
+            width:100%;
+            height:100%;
+            overflow:hidden;
+        }
+    </style>
+    <title>订单列表页</title>
+    <link rel="stylesheet" href="./css/airplane-style.css"/>
+</head>
+<body class="scope" style="display: -webkit-box;-webkit-box-orient: vertical;">
+    <section class="warnText">
+        <p></p>
+    </section>
+    <div class="bg" style="z-index: 10;"></div>
+    <div class="Loading" style="z-index: 11;">
+        <img src="img/loading.gif" alt="">
+        <!--<img src="img/img_loading.gif" alt="">
+        <p>订单查询中...</p>-->
+    </div>
+    <header class="header" style="display: block;position: relative;height: 4.5rem;border-bottom: 1px solid #eee;">
+        <img src="img/zhf/img_topbar_back.png" alt="" class="goBack">
+        <h1>订单列表</h1>
+    </header>
+    <section class="main" style="background: #f3f3f3;overflow-y:scroll;width:100%;-webkit-box-flex: 1;" id="manageList">
+        <div class="scroller">
+            <div id="pullDown">
+                <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+            </div>
+            <ul class="order-list">
+
+            </ul>
+            <div id="pullUp">
+                <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="js/zepto.js"></script>
+<script src="js/app/lodash/lodash.min.js"></script>
+<script src="js/iscroll4.js"></script>
+<script src="./js/moment.js"></script>
+<script src="./js/app/common/request.js"></script>
+<script src="./js/app/common/API.js"></script>
+<script src="./js/app/common/Constant.js"></script>
+<script src="./js/gallery/base/base.js"></script>
+<script src="./js/app/baiduTemplate.js"></script>
+<script type="text/html" id="orderDetail">
+    <li class="order-list-li" id="<%=orderUuid%>" data-code="<%=orderUuid%>">
+            <div class="order-list-li-top"><span class="font-16 fontColor-ff6"><%=flightNo%></span><span class="font-12 fontColor-666 orderNo">订单号：<%=orderNumber%></span></div>
+            <div class="order-list-li-bottom">
+                <div class="order-list-form-to">
+                    <span class="order-list-status font-13 fontColor-ff6"><%=orderStatus%><img src="./img/img_rightarrow_orange.png"/></span>
+                    <div><span class="font-14 fontColor-333"><%=departAirportName%></span><img class="order-list-jiantou" src="./img/img_orderlist_passby.png" alt=""/><span class="font-14 fontColor-333"><%=arriveAirportName%></span></div>
+                </div>
+                <p class="font-12 fontColor-999">出发时间: <span class="order-list-formto-time"><%=beginTime%></span></p>
+                <p class="font-12 fontColor-999">到达时间: <span class="order-list-formto-time"><%=endTime%></span></p>
+                <span class="order-list-money font-14 fontColor-ff6"><%=totalFee%>元</span>
+            </div>
+    </li>
+</script>
+<script src="./js/app/orderList/order-list.js"></script>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>审批单详情</title>
+    <link rel="stylesheet" href="css/airplane-style.css">
+</head>
+<body>
+<div class="wrapper" style="padding: 0;">
+    <header class="header" style="display: block;position: relative;height: 4.5rem;">
+        <img src="img/zhf/img_topbar_back.png" alt="" class="goBack">
+        <h1>审批单详情</h1>
+    </header>
+    <section class="main">
+        <ul class="user-info approInfo">
+            <!--<li>
+                <label>出发城市</label><div>北京</div>
+            </li>
+            <li>
+                <label>到达城市</label><div>上海</div>
+            </li>
+            <li>
+                <label>去程日期</label><div>北京</div>
+            </li>
+            <li>
+                <label>返程日期</label><div>上海</div>
+            </li>
+            <li>
+                <label>乘机人</label><div>上海</div>
+            </li>
+            <li>
+                <label>代理人</label><div>上海</div>
+            </li>
+            <li>
+                <label>单价</label><div>上海</div>
+            </li>
+            <li>
+                <label>航班号</label><div>上海</div>
+            </li>
+            <li>
+                <label>成本中心</label><div>上海</div>
+            </li>
+            <li>
+                <label>项目(任务)</label><div>上海</div>
+            </li>
+            <li>
+                <label>费项</label><div>上海</div>
+            </li>
+            <li>
+                <label>出差事由</label><div>上海</div>
+            </li>-->
+        </ul>
+    </section>
+    <footer class="footer">
+    </footer>
+</div>
+<section class="warnText">
+    <p></p>
+</section>
+<div class="Loading" style="z-index: 11;">
+    <img src="img/loading.gif" alt="">
+</div>
+</body>
+<script src="js/zepto.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/gallery/base/base.js"></script>
+<script src="js/app/common/request.js"></script>
+<script src="js/app/common/API.js"></script>
+<script src="js/app/common/Constant.js"></script>
+<script>
+    (function($){
+        $(".Loading").show();
+        $(".approInfo").html("");
+    var approveNo = getQueryString("approvalNo"),
+        reData = {
+            "approveNo": approveNo
+        };
+        ajaxRequest({url: API.AIR_TICKER.QUERY_CAS_APPROVE_DETAIL,data: reData},function(data){
+            console.log(data);
+            $(".Loading").hide();
+            var info = data.content;
+            $(".approInfo").append(
+                    '<li><label>审批单号</label><div>'+ approveNo +'</div></li>'+
+                    '<li><label>出发城市</label><div>'+ info.originCity +'</div></li>'+
+                    '<li><label>到达城市</label><div>'+ info.arriveCity +'</div></li>'+
+                    '<li><label>去程日期</label><div>'+ info.originDate +'</div></li>'+
+                    '<li><label>返程日期</label><div>'+ info.returnDate +'</div></li>'+
+                    '<li><label>乘机人</label><div>'+ info.passengerName +'</div></li>'+
+                    '<li><label>代理人</label><div>'+ info.agentEmployeeName +'</div></li>'+
+                    '<li><label>单价</label><div>'+ info.unitPrice +'</div></li>'+
+                    '<li><label>航班号</label><div>'+ info.flightNo +'</div></li>'+
+                    '<li><label>成本中心</label><div>'+ info.costCenterName +'</div></li>'+
+                    '<li><label>项目(任务)</label><div>'+ info.taskName +'</div></li>'+
+                    '<li><label>费项</label><div>'+ info.costItemName +'</div></li>'+
+                    '<li><label>出差事由</label><div>'+ info.travelRequestReason +'</div></li>');
+        },function(data){
+            $(".Loading").hide();
+            $(".warnText").fadeIn('slow').find("p").text(data.message);
+            setTimeout(fadeOut,3000);
+            return false;
+        });
+        $(".goBack").on("tap",function(){
+            window.history.back();
+        });
+    })(Zepto);
+</script>
+</html>

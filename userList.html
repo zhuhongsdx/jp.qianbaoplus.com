@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>乘机人列表</title>
+    <link rel="stylesheet" href="css/airplane-style.css">
+</head>
+<body style="background: #fff;">
+    <div class="wrap">
+        <ul>
+        <!--<li>
+                <div class="userLi">
+                    <a href="javascript:;"></a>
+                    <b class="font-15 fontColor-333">张三</b>
+                    <p class="font-12">手机号：<span>15110178359</span></p>
+                </div>
+                <div class="write"><img src="img/img_commoncontacts_edit.png" alt=""></div>
+            </li>
+            <li>
+                <div class="userLi">
+                    <a href="javascript:;" class="check"></a>
+                    <b class="font-15 fontColor-333">张三</b>
+                    <p class="font-12">手机号：<span>15110178359</span></p>
+                </div>
+                <div class="write"><img src="img/img_commoncontacts_edit.png" alt=""></div>
+            </li>-->
+        </ul>
+        <!--<a href="javascript:;" class="sure-btn">确认</a>-->
+    </div>
+    <section class="warnText">
+        <p></p>
+    </section>
+    <div class="bg"></div>
+    <div class="Loading">
+        <img src="img/loading.gif" alt="">
+    </div>
+    <div class="yesNo" style="height: 9rem;margin-top: -4rem;">
+        <p style="font-size: 16px;color: #333;padding: 2rem 1.7rem;"><span class="userName"></span> 身份证信息缺失</p>
+        <section style="display: block;">
+            <a href="javascript:;" class="yes" style="color: #333;">取消</a><a href="javascript:;" class="no">完善信息</a>
+        </section>
+    </div>
+</body>
+<script src="./js/zepto.js"></script>
+<script src="./js/moment.js"></script>
+<script src="./js/app/lodash/lodash.min.js"></script>
+<script src="./js/app/common/request.js"></script>
+<script src="./js/app/common/API.js"></script>
+<script src="./js/app/common/Constant.js"></script>
+<script src="./js/gallery/base/base.js"></script>
+<script src="./js/app/fillInOrder/userList.js"></script>
+</html>

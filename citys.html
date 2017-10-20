@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <link rel="stylesheet" href="css/home.css"/>
+    <title>城市</title>
+</head>
+<body>
+    <div class="wrapper">
+        <section class="warnText">
+            <p></p>
+        </section>
+        <header class="header" style="height: 4.5rem;border-bottom: 1px solid #eee;">
+            <img src="img/zhf/img_topbar_back.png" alt="" class="goBack">
+            <h1 style="line-height: 4.5rem;"></h1>
+        </header>
+        <section class="main">
+        <div class="city">
+            <div class="search">
+                <input id="searchTown" type="text" placeholder="请输入中文"><label for="searchTown" id="cancelSer">取消</label>
+            </div>
+            <h2 class="newListH">最佳匹配</h2>
+            <div class="newList">
+                <ul>
+                </ul>
+            </div>
+            <div class="cityList" id="cityList">
+            <div class="scroller">
+                <div class="area">
+                    <h2>历史选择</h2>
+                    <ul id="history">
+                    </ul>
+                </div>
+                <div class="area" style="margin-bottom:0;">
+                    <h2>热门城市<img src="img/img_hotcity.png" alt=""></h2>
+                    <ul style="padding-bottom:0.5rem;">
+                        <li data-code="BJS">北京</li>
+                        <li data-code="SHA">上海</li>
+                        <li data-code="SZX">深圳</li>
+                        <li data-code="CAN">广州</li>
+                        <li data-code="NKG">南京</li>
+                        <li data-code="CTU">成都</li>
+                        <li data-code="CKG">重庆</li>
+                        <li data-code="SIA">西安</li>
+                        <li data-code="KMG">昆明</li>
+                        <li data-code="HGH">杭州</li>
+                        <li data-code="CSX">长沙</li>
+                        <li data-code="XMN">厦门</li>
+                    </ul>
+                </div>
+                <dl class="town"></dl>
+            </div>
+            </div>
+            <aside class="zimu">
+                    <!--<a href="#a">A</a>
+                    <a href="#b">B</a>
+                    <a href="#c">C</a>
+                    <a href="#d">D</a>
+                    <a href="#e">E</a>
+                    <a href="#f">F</a>
+                    <a href="#g">G</a>
+                    <a href="#h">H</a>
+                    <a href="#i">I</a>
+                    <a href="#j">J</a>
+                    <a href="#k">K</a>
+                    <a href="#l">L</a>
+                    <a href="#m">M</a>
+                    <a href="#n">N</a>
+                    <a href="#o">O</a>
+                    <a href="#p">P</a>
+                    <a href="#q">Q</a>
+                    <a href="#r">R</a>
+                    <a href="#s">S</a>
+                    <a href="#t">T</a>
+                    <a href="#u">U</a>
+                    <a href="#v">V</a>
+                    <a href="#w">W</a>
+                    <a href="#x">X</a>
+                    <a href="#y">Y</a>
+                    <a href="#z">Z</a>-->
+            </aside>
+        </div>
+        </section>
+        <div class="bg"></div>
+    </div>
+</body>
+<!--<script src="js/zepto.js"></script>
+<script src="js/lodash.min.js"></script>
+<script src="js/iscroll4.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/common.js"></script>
+<script src="js/api.js"></script>
+<script src="js/train.js"></script>
+<script src="js/home.js"></script>
+<script src="js/area.js"></script>-->
+
+<script type="text/javascript" src="./js/lib/zepto/zepto.min.js"></script>
+<script src="./js/moment.js"></script>
+<script src="js/app/lodash/lodash.min.js"></script>
+<script src="./js/app/common/request.js"></script>
+<script src="./js/app/common/API.js"></script>
+<script src="./js/app/common/Constant.js"></script>
+<script type="text/javascript" src="./js/gallery/base/base.js"></script>
+<script type="text/javascript" src="./js/moudle/json/city.js?v=2017-09-12"></script>
+<script src="./js/app/citys/citys.js"></script>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>行云收银台</title>
+    <link rel="stylesheet" href="./css/airplane-style.css"/>
+    <link href="./css/mui.min.css" rel="stylesheet" />
+</head>
+<body class="scope">
+    <section class="warnText">
+        <p></p>
+    </section>
+<div class="wrap">
+
+</div>
+<!--订单信息-->
+<!--<div class="order-card">-->
+    <!--<div class="order-card-title font-14 fontColor-333">订单信息(去程)<label class="fontColor-333">订单编号</label><span class="fontColor-333">YC201605301405112345</span></div>-->
+    <!--<p class="order-card-info font-12"><label class="fontColor-777">订单编号</label><span class="fontColor-666">YC201605301405112345</span></p>-->
+    <!--<p class="order-card-info font-12"><label class="fontColor-777">支付单号</label><span class="fontColor-666">4356436435634564356</span></p>-->
+    <!--<p class="order-card-info font-12"><label class="fontColor-777">订单金额</label><span class="fontColor-666">¥1460</span></p>-->
+    <!--<p class="order-card-info font-12"><label class="fontColor-777">服务类型</label><span class="fontColor-666">机票</span></p>-->
+<!--</div>-->
+<!--<div class="order-card" style="display:none;">-->
+    <!--<div class="order-card-title font-14 fontColor-333">订单信息(返程)</div>-->
+    <!--<p class="order-card-info font-12"><label class="fontColor-777">订单编号</label><span class="fontColor-666">YC201605301405112345</span></p>-->
+    <!--<p class="order-card-info font-12"><label class="fontColor-777">支付单号</label><span class="fontColor-666">4356436435634564356</span></p>-->
+    <!--<p class="order-card-info font-12"><label class="fontColor-777">订单金额</label><span class="fontColor-666">1460</span></p>-->
+    <!--<p class="order-card-info font-12"><label class="fontColor-777">服务类型</label><span class="fontColor-666">机票</span></p>-->
+<!--</div>-->
+<!--<div class="order-card">-->
+    <!--<div class="order-card-title order-card-money font-14 fontColor-333">应付金额<span class="font-20 fontColor-ff6">2920</span></div>-->
+    <!--<p class="order-card-info font-12"><label class="fontColor-777">订单编号</label><span class="fontColor-ff6">YC201605301405112345</span></p>-->
+    <!--<p class="order-card-info font-12"><label class="fontColor-777">支付单号</label><span class="fontColor-ff6">4356436435634564356</span></p>-->
+    <!--<p class="order-card-info font-12"><label class="fontColor-777">订单金额</label><span class="fontColor-ff6">1460</span></p>-->
+    <!--<p class="order-card-info font-12"><label class="fontColor-777">服务类型</label><span class="fontColor-ff6">机票</span></p>-->
+<!--</div>-->
+
+<!--支付方式-->
+<div class="order-card pay-way">
+    <div class="order-card-title font-14 fontColor-333">选择支付方式</div>
+    <div class="pay-way-list font-14 fontColor-666">
+        <img src="./img/img_corporate_payment.png" alt=""/>企业账户
+    </div>
+</div>
+
+
+<!--正在出票弹窗-->
+<div class="bg"></div>
+<div class="ticket-mask">
+    <img src="./img/img_ticket.gif" alt=""/>
+    <p>正在出票，请稍候</p>
+</div>
+
+<!--出票失败弹窗-->
+<div class="ticket-lose-mask" style="display: none;">
+    <div class="ticket-lose">
+        <p class="font-14 fontColor-666">出票失败</p>
+        <p class="font-14 fontColor-999">出票失败，请联系客服或重新预订</p>
+        <div class="ticket-lose-btn">
+            <a href="javascript:;" class="link-service font-14 fontColor-666">联系客服</a><a href="javascript:;" class="font-14 fontColor-ff6">重新预订</a>
+        </div>
+    </div>
+</div>
+</body>
+<script src="./js/lib/zepto/zepto-noTouch.min.js"></script>
+<script src="./js/moment.js"></script>
+<script src="./js/app/lodash/lodash.min.js"></script>
+<script src="./js/app/common/request.js"></script>
+<script src="./js/app/common/API.js"></script>
+<script src="./js/app/common/Constant.js"></script>
+<script src="./js/gallery/base/base.js"></script>
+<script src="./js/moudle/mui/mui.min.js"></script>
+<script src="./js/app/payTable/payTable.js"></script>
+</html>

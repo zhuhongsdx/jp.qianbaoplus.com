@@ -1,0 +1,230 @@
+@import url(reset.css);
+*,*:before,*:after{
+    box-sizing: border-box;
+}
+
+body{
+    -webkit-user-select: none;/*不允许用户执行选中操作*/
+    -webkit-text-size-adjust: none;/*旋转屏幕时禁止调整文字大小*/
+    -webkit-tap-highlight-color: rgba(0,0,0,0);/*点击时不出现半透明框*/
+}
+input,select,textarea{
+    -webkit-appearance: none;/*先去掉默认样式再修改*/
+    -moz-appearance: none;
+}
+
+html,body,.wrapper{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: #333;
+}
+.wrapper{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    background: #f6f6f6;
+    height: 100%;
+}
+.header{
+    height: 6rem;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content:center;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+}
+.header img{
+    display: block;
+    width: 18rem;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.main{
+    width: 100%;
+    -webkit-box-flex: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow-y: scroll;
+}
+/*第一块*/
+.main .first_section{
+    background: white;
+    height: 7rem;
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    border: 1px solid #DDDDDD;
+    border-right: none;
+    border-left: none;
+}
+.main .container{
+    display: flex;
+    flex-direction: row;
+}
+.main .first_section .header_img{
+    border-radius: 50%;
+    width: 4.8rem;
+    height: 4.8rem;
+    display: -webkit-flex;
+    display: flex;
+    margin-left: 2rem;
+}
+.main .first_section .first_center{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+.main .first_center .v_name{
+    font-size: 18px;
+}
+.main .first_center .v_phone{
+    color: #9B9B9B;
+    font-size: 12px;
+}
+.main .first_center .v_message{
+    color: #9B9B9B;
+    font-size: 12px;
+}
+.main .first_section .right_arrow{
+   margin-right: 20px;
+    width: 0.5rem;
+    height: 1rem;
+}
+
+/*主体第二块*/
+.main .second_section{
+    width: 100%;
+    height: 15rem;
+    background: white;
+    margin-bottom: 0.5rem;
+    border-top: 1px solid #DDDDDD;
+}
+
+.main .second_section ul li{
+    height: 5rem;
+    border-bottom: 1px solid #DDDDDD;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+.main .second_section .li_div{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.main .second_section ul li .myOrder_img{
+    margin-left: 2rem;
+    width: 2rem;
+    height: 2rem;
+}
+.main .second_section ul li span{
+    margin-left: 1rem;
+    font-size: 16px;
+}
+.main .second_section ul li .right_rarrow{
+    margin-right: 2rem;
+    display: inline-block;
+    width: 0.5rem;
+    height: 1rem;
+}
+.main .second_section ul li:last-child .myOrder_img{
+    color: #ccc;
+    width: 1.8rem;
+}
+.main .second_section ul li:last-child span{
+    color: #ccc;
+    margin-left: 1.1rem;
+    font-size: 16px;
+}
+
+/*主体第三块*/
+.main .third_section ul li{
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    background: #e5e5e5;
+    height: 4rem;
+    border-radius: 2px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.main .third_section ul li .third_li{
+    width: 15rem;
+    height: 4rem;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.main .third_section ul li .third_img{
+    width: 1.8rem;
+    height: 1.8rem;
+}
+.main .third_section ul li span{
+    font-size: 16px;
+    color: #ccc;
+    margin-left: 0.8rem;
+}
+
+
+
+.footer{
+    width: 100%;
+    height: 4.9rem;
+    background: #313438;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    z-index: 999999;
+    position: fixed;
+    bottom: 0;
+}
+.footer a{
+    display: block;
+    -webkit-box-flex: 1;
+    text-align: center;
+    font-size: 10px;
+    color: #929292;
+}
+.footer a span{
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto;
+    background: url("../img/zhf/icon_foot.png") 0 0 no-repeat;
+    background-size: 300% 200%;
+}
+.footer a:nth-of-type(2) span{
+    background-position: -3rem 0.2rem;
+}
+.footer a:nth-of-type(3) span{
+    background-position: -6rem 0rem;
+}
+.footer a.current{
+    color: #fff;
+}
+.footer a.current:nth-of-type(1) span{
+    background-position: 0 -3rem;
+}
+.footer a.current:nth-of-type(2) span{
+    background-position: -3rem -2.8rem;
+}
+.footer a.current:nth-of-type(3) span{
+    background-position: -6rem -3rem;
+}

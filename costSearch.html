@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>审批单详情</title>
+    <link rel="stylesheet" href="css/zhf.css">
+    <style>
+        .main div{
+            width: 100%;
+            overflow-x: hidden;
+            white-space: normal;
+            text-overflow: ellipsis;
+            font-size: 14px;
+            height: 20px;
+            line-height: 20px;
+
+
+        }
+        .main{
+            overflow-y:scroll;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header" style="padding: 1rem;position: relative;">
+        <input maxlength="10" class="searchContent" type="text">
+        <div class="search"><img src="img/zhf/search.png" alt=""></div>
+    </header>
+    <div class="main">
+    </div>
+</div>
+<section class="warnText">
+    <p></p>
+</section>
+<div class="Loading" style="z-index: 11;display: none;">
+    <img src="img/loading.gif" alt="">
+</div>
+</body>
+<script src="js/zepto.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/gallery/base/base.js"></script>
+<script src="js/app/common/request.js"></script>
+<script src="js/app/common/API.js"></script>
+<script src="js/app/common/Constant.js"></script>
+<script>
+    (function($){
+        var userList = JSON.parse(localStorage.getItem("userList"));
+        costList=[];
+        $.each(userList,function(index,val){
+            costList = val.costCenterList;
+            console.log(costList);
+        });
+        $(".search").on("tap",function () {
+            var newVal=$(".searchContent").val()
+            if(newVal==""){
+                $(".main").html("");
+                return
+            }
+            $(".main").html("");
+            for(var i=0;i<costList.length;i++){
+                if(costList[i].costCenterName.indexOf(newVal)>-1){
+                    $("<div costCenterCode="+costList[i].costCenterCode+">"+costList[i].costCenterName+"</div>").appendTo(".main")
+                }
+            }
+        })
+        $(".main div").live("tap",function () {
+            var newCode=$(this).attr("costCenterCode");
+            var newVal=$(this).html();
+            var newStr={code:newCode,val:newVal}
+            localStorage.setItem("addUserCenter",JSON.stringify(newStr))
+            window.location.href = "addUser.html";
+
+        })
+
+        /*
+        $.each(userList,function(index,val) {
+            if (urlId[currentIndex] == val.userIdx) {
+                userList[index]['costCenterCode'] = depCodeText;
+                userList[index]['costCenterName'] = depText;
+            }
+        });
+        localStorage.setItem("userList",JSON.stringify(userList));
+        window.location.href = "addUser.html";*/
+    })(Zepto);
+</script>
+</html>

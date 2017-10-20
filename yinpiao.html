@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>银票垫付</title>
+    <link rel="stylesheet" href="css/zhf.css">
+</head>
+<body>
+<div class="wrapper approval">
+    <header class="header">
+        <img src="img/zhf/img_topbar_back.png" alt="" class="goBack">
+        <h1>银票垫付</h1>
+    </header>
+    <div class="yin_main">
+        <img src="img/zhf/xiangqingye.png" alt="">
+        <h3>您还未开通行云银票</h3>
+        <p class="goInfo">通过行云银票，您可以使用额度先消费，待账期结束后<br>再还款，从而获得充分的资金时间价值<span>了解更多></span></p>
+        <a href="tel:4000513568" class="open">立即开通</a>
+    </div>
+</div>
+</body>
+<script src="js/zepto.js"></script>
+<script src="js/gallery/base/base.js"></script>
+<script>
+    (function($){
+        $(".goInfo").on("tap",function(){
+            window.location.href = "yinpiao_info.html";
+        });
+        $(".goBack").on("tap",function(){
+            window.history.back();
+        });
+    })(Zepto);
+</script>
+</html>

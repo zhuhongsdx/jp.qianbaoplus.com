@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>机票列表</title>
+    <link rel="stylesheet" href="./css/airplane-style.css" />
+    <link href="./css/mui.min.css" rel="stylesheet" />
+</head>
+
+<body class="scope" style="background-color: #fff;">
+    <section class="warnText">
+        <p></p>
+    </section>
+    <div class="bg" style="z-index: 100;"></div>
+    <div class="tuiInfo" style="z-index: 100;">
+        <h3>退改签说明</h3>
+        <div></div>
+    </div>
+    <div class="zhf_low">
+         <div class="zhf_low_container">
+             <div class="zhf_low_title">
+                 <div class="zhf_title"><img style="width: 100%;height: 100%" src="./img/img_importantnotice.png" alt=""></div>
+                 <div class="zhf_title">
+                     <div class="zhf_title_list">因您未选择1小时内最低价格航班，</div>
+                     <div class="zhf_title_list">请选择原因</div>
+                 </div>
+             </div>
+             <div class="zhf_select">
+                 <div class="zhf_select_container">
+                     <div class="zhf_select_left selectNew">改签、迁转或退票</div>
+                     <div class="zhf_select_right">起飞或时间不合适</div>
+                 </div>
+                 <div class="zhf_select_container">
+                     <div class="zhf_select_left">与领导或客户同行</div>
+                     <div class="zhf_select_right">出差计划变更</div>
+                 </div>
+                 <div class="zhf_select_container">
+                     <div class="zhf_select_left">计划外的紧急任务</div>
+                     <div class="zhf_select_right">其他</div>
+                 </div>
+             </div>
+             <div  class="zhf_footer">
+                 <div class="zhf_beizhu">备注</div>
+                 <div class="zhf_beizhu_area">
+                     <textarea style="font-size: 14px" name="" id="" cols="15" rows="3" ></textarea>
+                 </div>
+                 <div class="zhf_submit">
+                     <div>取消</div>
+                     <div class="zhf_submit_goon">继续预定</div>
+                 </div>
+             </div>
+         </div>
+    </div>
+    <div class="Loading">
+        <img src="img/loading.gif" alt="">
+    </div>
+    <div class="noFlight">
+        <img src="img/icon_noflight.png" alt="">
+        <p>非常抱歉的通知您，您所选的出行日期已无可用航班或者航班已经售罄</p><!--没有符合条件的航班-->
+    </div>
+    <header class="header" style="display: block;height: 4.5rem;position: fixed;left:0;top:0;z-index: 99;border-bottom: 1px solid #ddd;">
+        <img src="img/zhf/img_topbar_back.png" alt="" class="goBack">
+        <h1 style="line-height: 4rem;"></h1>
+    </header>
+    <section class="allCon">
+        <div class="list-head-date clearfix">
+            <div class="font-14">
+                <a href="javascript:;" class="prev fontColor-ff6">前一天</a>
+                <a href="javascript:;" class="prevNot fontColor-ff6" style="display: none;">前一天</a>
+            </div>
+            <div class="font-14 fontColor-666">
+                <a href="javascript:;" id="choiceDate">
+                    <span id="date"></span> <span id="week"></span>
+                    <img src="./img/img_address_downarrow.png" alt="" />
+                </a>
+            </div>
+            <div class="font-14">
+                <a href="javascript:;" class="next fontColor-ff6">后一天</a>
+                <a href="javascript:;" class="nextNot fontColor-ff6" style="display: none;">后一天</a>
+            </div>
+        </div>
+        <div class="arrayMode clearfix">
+            <div class="font-12 fontColor-666 arrayModeActive " data-code="beginTime">
+                <span class="first" style="display: none;">按出发时间</span><span class="asc_">出发(早-晚)</span><span class="desc_" style="display: none;">出发(晚-早)</span>
+            </div>
+            <div class="font-12 fontColor-666  "  data-code="diffTime_">
+                <span class="first">按耗时排序</span><span class="asc_" style="display: none;">耗时(少-多)</span><span class="desc_" style="display: none;">耗时(多-少)</span>
+            </div>
+            <div class="font-12 fontColor-666 "  data-code="minPrice">
+                <span class="first">按价格排序</span><span class="asc_" style="display: none;">价格(低-高)</span><span class="desc_" style="display: none;">价格(高-低)</span>
+            </div>
+            <section class="font-12 fontColor-666 filtrate">
+                <img src="img/zhf/shaixuan.png" alt=""><small>筛选</small>
+            </section>
+        </div>
+        <!--航班列表开始-->
+        <ul class="planeList">
+
+        </ul>
+    </section>
+
+    <div class="yesNo changeCause" style="height: 11rem;margin-top: -5rem;z-index: 150;">
+        <p style="font-size: 16px;color: #333;padding: 2rem 1.7rem;"><!--沒有匹配到相关的审批单，是否转为因私出行？-->没有匹配到相关审批单，请先提交审批通过后再预订！</p>
+        <section style="display: block;">
+            <a href="javascript:;" class="no" style="color: #333;width: 100%;"><!--否-->确定</a><!--<a href="javascript:;" class="yes" style="color: #333;">是</a>-->
+        </section>
+    </div>
+    <div class="yesNo changeTic" style="height: 17rem;margin-top: -8rem;z-index: 150;">
+        <h1 style="display: block;">改期确认</h1>
+        <p style="text-align: left;">是否将原航班改期为<span class="changedDate"></span>出发的<span class="changedFlight"></span>次航班？</p>
+        <p class="diJia" style="text-align: left;color: #ff600a;">根据航空公司规定，改期后价格更低将不退还差价！</p>
+        <p style="text-align: left;color: #ff600a;">如果您已值机，请在提交改期前将值机取消!</p>
+        <section style="display: block;">
+            <a href="javascript:;" class="no">取消</a><a href="javascript:;" class="yes" id="yesChange">确认</a>
+        </section>
+    </div>
+    <div class="yesNo busy" style="height: 11rem;margin-top: -5rem;z-index: 150;">
+        <p style="font-size: 16px;color: #333;padding: 2rem 1.7rem;">很抱歉，系统当前应答繁忙，请稍后再试！</p>
+        <section style="display: block;">
+            <a href="javascript:;" class="yes" style="color: #ff600a;width: 100%;">确定</a>
+        </section>
+    </div>
+    <div class="loading" style="z-index: 150;">
+        <img src="img/img_loading.gif" alt="">
+        <p>正在处理中，请稍候...</p>
+    </div>
+    <div class="approval">
+        <h3>请选择已通过的审批单</h3>
+        <ul>
+            <!--<li class="canSel">
+                <p>张三的审批单 <span>已通过</span></p>
+                <small>审批单号：123123121645</small>
+                <small>出发：2017.06.01-2017.12.31 北京；杭州；上海；深圳</small>
+                <small>到达：2017.06.01-2017.12.31 北京；杭州；上海；深圳</small>
+            </li>-->
+        </ul>
+        <div class="appSure">确定</div>
+    </div>
+    <!--筛选条件弹窗开始-->
+    <div class="condition-screening-mask" style="z-index: 100;">
+        <div class="condition-screening">
+            <div class="condition-screening-top">
+                <a href="javascript:;" class="cancel-btn font-14 fontColor-666">取消</a>
+                <a href="javascript:;" class="empty-btn font-14 fontColor-ff6">清空筛选条件</a>
+                <a href="JavaScript:;" class="confirm-btn font-14 fontColor-ff6">确定</a>
+            </div>
+            <ol class="condition-screening-ol">
+                <li class="condition-screening-menu font-14 fontColor-666 condition-borderColor">起飞时间<span class="selec"></span></li>
+                <li class="condition-screening-menu font-14 fontColor-666">舱位<span class="selec"></span></li>
+                <li class="condition-screening-menu font-14 fontColor-666">航空公司<span class="selec"></span></li>
+                <li class="condition-screening-menu font-14 fontColor-666">机场<span class="selec"></span></li>
+                <li class="condition-screening-menu font-14 fontColor-666">折扣<span class="selec"></span></li>
+            </ol>
+            <ul class="condition-screening-ul">
+                <li class="condition-screening-menu-info departTimeList">
+                    <div class="font-12 fontColor-666 check-pic" data-isFilter="0">不限</div>
+                    <div startTime="0000" endTime="0900" class="font-12 fontColor-666"  data-isFilter="1">00:00-09:00</div>
+                    <div startTime="0900" endTime="1200" class="font-12 fontColor-666"  data-isFilter="1">09:00-12:00</div>
+                    <div startTime="1200" endTime="1800" class="font-12 fontColor-666"  data-isFilter="1">12:00-18:00</div>
+                    <div startTime="1800" endTime="2400" class="font-12 fontColor-666"  data-isFilter="1">18:00-24:00</div>
+                </li>
+                <li class="condition-screening-menu-info space">
+                    <div class="font-12 fontColor-666 check-pic" data-code="ALL" data-isFilter="0">不限</div>
+                    <div class="font-12 fontColor-666" data-code="Y"  data-isFilter="1">经济舱</div>
+                    <div class="font-12 fontColor-666" data-code="C"  data-isFilter="1">公务舱</div>
+                    <div class="font-12 fontColor-666" data-code="F"  data-isFilter="1">头等舱</div>
+                </li>
+                <li class="condition-screening-menu-info airline">
+                    <div class="font-12 fontColor-666 check-pic"   data-isFilter="0">不限</div>
+                    <!--<div class="font-12 fontColor-666">东方航空</div>
+                    <div class="font-12 fontColor-666">东南航空</div>
+                    <div class="font-12 fontColor-666">东南航空</div>
+                    <div class="font-12 fontColor-666">东南航空</div>-->
+                </li>
+                <li class="condition-screening-menu-info airport">
+                    <!--<div class="font-12 fontColor-666 check-pic">不限</div>
+                     <span class="aircraft">起飞</span>
+                    <div class="font-12 fontColor-ff6">北京机场</div>
+                    <span class="descend">降落</span>
+                    <div class="font-12 fontColor-ff6">南苑机场</div> -->
+                </li>
+                <li class="condition-screening-menu-info discount">
+                    <div class="font-12 fontColor-666 check-pic"  data-isFilter="0">不限</div>
+                    <div startDiscount="10" endDiscount="20" class="font-12 fontColor-666"   data-isFilter="1">1折-2折</div>
+                    <div startDiscount="20" endDiscount="30" class="font-12 fontColor-666"   data-isFilter="1">2折-3折</div>
+                    <div startDiscount="30" endDiscount="40" class="font-12 fontColor-666"   data-isFilter="1">3折-4折</div>
+                    <div startDiscount="40" endDiscount="50" class="font-12 fontColor-666"   data-isFilter="1">4折-5折</div>
+                    <div startDiscount="50" endDiscount="60" class="font-12 fontColor-666"   data-isFilter="1">5折-6折</div>
+                    <div startDiscount="60" endDiscount="70" class="font-12 fontColor-666"   data-isFilter="1">6折-7折</div>
+                    <div startDiscount="70" endDiscount="80" class="font-12 fontColor-666"   data-isFilter="1">7折-8折</div>
+                    <div startDiscount="80" endDiscount="90" class="font-12 fontColor-666"   data-isFilter="1">8折-9折</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--筛选条件弹窗结束-->
+    <script src="./js/lib/zepto/zepto-noTouch.min.js"></script>
+    <script src="./js/moment.js"></script>
+    <script src="./js/app/baiduTemplate.js"></script>
+    <script src="./js/app/lodash/lodash.min.js"></script>
+    <script src="./js/app/common/request.js"></script>
+    <script src="./js/app/common/API.js"></script>
+    <script src="./js/app/common/Constant.js"></script>
+    <script src="./js/moudle/mui/mui.min.js"></script>
+    <script src="./js/app/list/list.js"></script>
+    <script type="text/html" id="airPortList">
+        <div class="font-12 fontColor-666 check-pic">不限</div>
+        <span class="aircraft"><%=start.name%> 起飞</span>
+        <%for(var i=0;i<start.array_.length;i++){%>
+        <div class="font-12 fontColor-ff6 departAirport" airpirtCode="<%=start.array_[i].airport%>"><%=start.array_[i].airportName%></div>
+        <%}%>
+        <span class="descend"><%=end.name%> 降落</span>
+        <%for(var i=0;i<end.array_.length;i++){%>
+        <div class="font-12 fontColor-ff6 arriveAirport" arriveAirport="<%=end.array_[i].airport%>"><%=end.array_[i].airportName%></div>
+        <%}%>
+    </script>
+    <script src="./js/gallery/base/base.js"></script>
+</body>
+</html>

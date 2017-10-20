@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>国内机票</title>
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/mui.min.css" />
+</head>
+
+<body class="scope" style="background-color: #fff;">
+    <section class="warnText">
+        <p>出发地不能与目的地相同</p>
+    </section>
+    <div class="wrapper">
+        <header class="header">
+            <img src="img/zhf/img_topbar_back.png" alt="" class="goBack">
+            <h1>国内机票</h1>
+        </header>
+        <section class="main">
+            <div class="place">
+                <div class="start">
+                    <a href="javascript:;" class="startF">
+                        <span>出发地</span>
+                    </a>
+                    <b class="startPlace"></b>
+                </div>
+                <div class="switch">
+                    <img src="./img/img_changelocation.png" alt="">
+                </div>
+                <div class="end">
+                    <a href="javascript:;" class="endF">
+                        <span>目的地</span>
+                    </a>
+                    <b class="endPlace"></b>
+                </div>
+            </div>
+            <div class="today">
+                <div class="mui-switch" id="mySwitch" data-jouryType="OW">
+                    <div class="mui-switch-handle"></div>
+                </div>
+                <a href="javascript:;" title="请选择出发日期" data-from="#home">
+                    <time id="today"></time>
+                    <span><b id="week"></b></span>
+                </a>
+                <p style="display:none;">出发日期</p>
+            </div>
+            <div class="backtime">
+                <a href="javascript:;" title="请选择返程日期" data-from="#home">
+                    <time id="backtime"></time>
+                    <span><b id="backweek"></b></span>
+                </a>
+                <p>返程日期</p>
+            </div>
+            <!--舱位选择开始-->
+            <div class="seat">
+                <span class="font20 fontColor-333 berth" data-code="Y">经济舱</span>
+                <span class="font16 fontColor-666">更换舱位<img src="./img/img_rightarrow.png" alt=""/></span>
+            </div>
+            <!--舱位选择结束-->
+
+            <!--舱位选择弹层开始-->
+            <div class="seatMask">
+                <ul class="seat-list">
+                    <li id="firstLi">选择舱位</li>
+                    <li class="secLi" data-code="Y">经济舱</li>
+                    <li class="secLi" data-code="C">公务舱</li>
+                    <li class="secLi" data-code="F">头等舱</li>
+                    <li class="secLi" data-code="ALL">不限舱位</li>
+                </ul>
+            </div>
+            <!--舱位选择弹层结束-->
+
+            <!--预定类型-->
+            <div class="type">
+                <span class="font20 fontColor-333 cause" data-num="1">因公出行</span>
+                <!--<span class="font16 fontColor-666"><img src="./img/img_rightarrow.png" alt=""/></span>-->
+            </div>
+            <div class="causeType">
+                <ul class="cause-list">
+                    <li id="secondLi">选择预定类型</li>
+                    <li class="secLi" data-num="1">因公出行</li>
+                    <li class="secLi" data-num="0">因私出行</li>
+                </ul>
+            </div>
+            <a href="javascript:;" class="query">查询</a>
+           <!-- <a href="http://192.168.1.11:8088/xingyun_hangbandongtai/index.html?init=" class="query">查询</a>-->
+           <!--<div class="low_end">
+     	        <ul id="hbdt">
+     		        <li><img src="img/icon_airlinetrends.png" alt="" /></li>
+     		        <li>航班动态</li>
+     	        </ul>
+     	        <ul>
+     		        <li><img src="img/icon_checkin.png" alt="" /></li>
+     		        <li>值机选座</li>
+     	        </ul>
+     	        <ul class="refundPlaneTicket">
+     		        <li><img src="img/icon_return-change.png" alt="" /></li>
+     		        <li>退改签</li>
+     	        </ul>
+     	        <div class="clear"></div>
+            </div>-->
+        </section>
+    </div>
+
+    <div class="bg" style="z-index: 1500;"></div>
+    <div class="yesNo" style="height: 11rem;margin-top: -5rem;z-index: 1500;">
+        <p style="font-size: 16px;color: #333;padding: 2rem 1.7rem;"></p>
+        <section style="display: block;">
+            <a href="javascript:;" class="yes" style="color: #333;width: 100%;">确认</a>
+        </section>
+    </div>
+</body>
+<script src="./js/lib/zepto/zepto-noTouch.min.js"></script>
+<script src="./js/moment.js"></script>
+<script src="./js/app/common/request.js"></script>
+<script src="./js/app/common/API.js"></script>
+<script src="./js/app/common/Constant.js"></script>
+<script src="./js/gallery/base/base.js"></script>
+<script src="./js/gallery/base/common.js"></script>
+<script src="./js/moudle/mui/mui.min.js"></script>
+<script src="./js/app/home/home.js"></script>
+</html>

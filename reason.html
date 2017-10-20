@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>出差事由</title>
+    <link rel="stylesheet" href="./css/airplane-style.css"/>
+    
+</head>
+<body class="scope">
+<header class="header" style="display: block;position: relative;height: 4.5rem;border-bottom: 1px solid #ddd;">
+    <img src="img/zhf/img_topbar_back.png" alt="" class="goBack">
+    <h1>出差事由</h1>
+</header>
+<ul class="reson clearfix">
+    <!--<li class="reson-redborder">商务会议<img class="icon-mark" src='./img/img_choose_reason.png'/></li>-->
+    <li>商务会议</li>
+    <li>经验交流</li>
+    <li>拜访客户</li>
+    <li>专业培训</li>
+    <li>市场调研</li>
+    <li>学术研讨</li>
+    <li>产品推广</li>
+    <li>其他</li>
+</ul>
+<textarea class="reson-info font-14 fontColor-ccc" maxlength="30">补充其他说明(限30字以内)</textarea>
+<a href="javascript:;" class="submit-btn">确认</a>
+<section class="warnText">
+    <p></p>
+</section>
+<script src="./js/lib/zepto/zepto-noTouch.min.js"></script>
+<script src="./js/gallery/base/base.js"></script>
+</body>
+</html>
+<script>
+    $(function(){
+        //var cause = localStorage.getItem("selfCause")||"商务会议";
+        var cause = localStorage.getItem("selectCause");
+        var selfCause = localStorage.getItem("selfCause");
+        var click = false;
+
+        function fadeOut(){
+            $(".warnText").fadeOut('slow');
+        }
+
+        $(".reson li").on('click', function(event) {
+            click = true;
+            currentLi($(this));
+        });
+
+        $.each($(".reson li"),function (index,item) {
+            var this_ = $(item);
+            if(this_.html() == cause){
+                click = true;
+                currentLi(this_);
+            }else if(this_.html() == selfCause){
+                click = true;
+                currentLi(this_);
+            }
+        });
+        function currentLi(obj){
+            obj.addClass("reson-redborder").css("z-index","5").siblings().removeClass("reson-redborder").css("z-index","1");
+            obj.append("<img class='icon-mark' src='./img/img_choose_reason.png'/>").siblings().find(".icon-mark").remove();
+        }
+        $(".reson-info").focus(function(){
+            if($(this).val() == "补充其他说明(限30字以内)"){
+                $(this).val("").css("color","#333");
+            }
+        });
+        $(".reson-info").blur(function(){
+            if($(this).val() == ''){
+                $(this).val("补充其他说明(限30字以内)").css("color","#ccc");
+            }
+        });
+        $(".submit-btn").on('click', function() {
+            //localStorage.setItem("selfCause",$(".reson-redborder").text());
+            if(click){
+                localStorage.setItem("selectCause",$(".reson-redborder").text());
+            }else{
+                $(".warnText").fadeIn('slow').find("p").text("请选择出差原因");
+                setTimeout(fadeOut,2000);
+                return false;
+            }
+
+            var remark = $(".reson-info").val();
+            if(remark == "补充其他说明(限30字以内)"){
+                localStorage.setItem("remark","");
+            }else{
+                localStorage.setItem("remark",remark);
+            }
+            setTimeout(changePage,300);
+        });
+
+        function changePage(){
+            window.location.href='addUser.html';
+        }
+
+        $(".goBack").on("click",function(){
+            window.history.back();
+        });
+    })
+</script>

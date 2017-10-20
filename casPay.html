@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>收银台</title>
+    <link rel="stylesheet" href="./css/airplane-style.css"/>
+</head>
+<body>
+    <header class="header" style="display: block;position: relative;height: 4.5rem;">
+        <img src="img/zhf/img_topbar_back.png" alt="" class="goBack">
+        <h1>收银台</h1>
+    </header>
+    <div class="zhf_wrapper">
+        <header class="header">
+            <p>应付金额 <span><small class="totalFee"></small> 元</span></p>
+        </header>
+        <section class="main">
+            <div class="payStyle" id="business">
+                <h3>企业支付</h3>
+                <ul>
+                    <li data-code="2">
+                        <img src="img/zhf/3.png" alt="">
+                        <p>公司垫付<br><span>企业账户扣款</span></p>
+                    </li>
+                    <li data-code="3" id="uatp">
+                        <img src="img/zhf/1.png" alt="">
+                        <p>UATP支付<br><span>UATP安全支付</span></p>
+                    </li>
+                    <li data-code="1" class="yin">
+                        <img src="img/zhf/2.png" alt="">
+                        <p>银票垫付<br><span>企业银票账户支付</span></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="payStyle" id="personal">
+                <h3>个人支付</h3>
+                <ul>
+                    <li data-code="4">
+                        <img src="img/zhf/4.png" alt="">
+                        <p>支付宝支付<br><span>支付宝安全支付</span></p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <div class="bg"></div>
+    <div class="aliPay" style="position: fixed;left:0;top:0;width:100%;height:100%;background: #fff;display: none;"></div>
+    <div class="surePay">
+        <div class="payStatus">
+            <h3>确认支付</h3>
+            <span class="cancelPay">取消</span>
+        </div>
+        <div class="startPay">
+            <h4 class="payWay">企业支付</h4>
+            <section class="toPay">
+                <img src="img/zhf/Group.png" alt="" id="payImg">
+                <p>滑动确认支付</p>
+            </section>
+        </div>
+        <div class="paying">
+            <p>支付中，请稍候...</p>
+        </div>
+        <div class="paySuccess">
+            <img src="img/zhf/Group2.png" alt="">
+            <p>支付成功!</p>
+        </div>
+        <div class="payFailure">
+            <img src="img/zhf/page.png" alt="">
+            <p>网络开小差了，请稍后重试</p>
+            <span class="sureFail">确认</span>
+        </div>
+        <div class="payFail">
+            <p>行程XXXX支付失败</p>
+            <span class="failOk">确认</span>
+        </div>
+    </div>
+    <div class="ticket-mask">
+        <img src="./img/img_ticket.gif" alt=""/>
+        <p>正在出票，请稍候</p>
+    </div>
+    <section class="warnText">
+        <p></p>
+    </section>
+</body>
+<script src="js/zepto.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/gallery/base/base.js"></script>
+<script src="js/app/common/request.js"></script>
+<script src="js/app/common/API.js"></script>
+<script src="js/app/common/Constant.js"></script>
+<script src="js/app/zhf/zhfPay.js"></script>
+</html>
