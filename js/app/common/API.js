@@ -64,6 +64,5 @@ var API = {
         "APPROVE_TO_QUERY_FLIGHTS":baseUrl+CAS_API_MODULE.AIR_TICKER+"approveToQueryFlights?access_token="+token//zhf从审批单进首页
     },
     //"LOG":baseUrl+"xingyun/v1/h5/log?access_token="+token
-    // "LOG":baseUrl+"xingyun/v1/h5/log?access_token="+token
     "LOG":"http://ae0c00150f384ee9984a152c901e6076-cn-beijing.alicloudapi.com/log"  //copy
 };
