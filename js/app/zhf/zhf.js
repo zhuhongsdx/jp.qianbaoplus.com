@@ -12,6 +12,10 @@
     }else{
         appId = localStorage.getItem("appId");
     }
+    //var reData = {
+    //    "casToken": token || 11,
+    //    "appId": appId || 22
+    //};
     var reData = {
         "casToken": token,
         "appId": appId
